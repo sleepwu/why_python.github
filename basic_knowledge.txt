@@ -1,0 +1,15 @@
+1.Python的解释器类型之间的区别与联系：
+CPython: 用途最广解释器，基于C语言，缺点在于GIL限制了多线程的运行，不支持JIT导致运行速度不及JS和Java
+IPython：基于CPython的交互式解释器，交互方式上有增强
+Pypy: 可将Python编译成.Net执行
+Jython: 可将Python编译成JAVA执行
+IronPython: 可将Python代码编译成.Net字节码
+PS:若需要和JAVA和.Net进行交互，最好通过网络调用来交互，确保程序之间的独立性
+
+2.CPython缺陷：GIL以及不支持JIT即时编译
+线程释放GIL锁的情况： 在IO操作等可能会引起阻塞的system call之前,可以暂时释放GIL
+Python使用多进程可以利用多核的CPU资源；
+多线程爬取比单线程性能有提升，因为遇到IO阻塞会自动释放GIL锁；
+在处理类似于科学计算这种需要持续使用cpu的任务时，单线程比多线程快，而在处理类似于IO操作等可能引起阻塞的任务时，多线程比单线程快。
+
+
